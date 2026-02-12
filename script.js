@@ -31,7 +31,7 @@ const modeEl  = document.getElementById("mode");
 const pompaEl = document.getElementById("pompa");
 
 /*********************************************************
- HEARTBEAT
+ HEARTBEAT SYSTEM
 *********************************************************/
 let lastHeartbeat = 0;
 let everOnline = false;
@@ -39,7 +39,7 @@ const HEARTBEAT_TIMEOUT = 4000;
 const pageStart = Date.now();
 
 /*********************************************************
- CHART
+ CHART INIT (HANYA SEKALI)
 *********************************************************/
 const ctx = document.getElementById("soilChart").getContext("2d");
 
@@ -135,7 +135,7 @@ client.on("message", (topic, message) => {
 });
 
 /*********************************************************
- ONLINE / OFFLINE CHECK
+ ONLINE CHECK
 *********************************************************/
 setInterval(() => {
   const now = Date.now();
@@ -152,7 +152,7 @@ setInterval(() => {
 }, 1000);
 
 /*********************************************************
- CONTROL
+ CONTROL BUTTON
 *********************************************************/
 function toggleMode() {
   client.publish("irrigation/cmd/mode", "TOGGLE");
